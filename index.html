@@ -74,119 +74,95 @@
 
   <!-- Main Content Area -->
   <main>
-    <!-- Hero Banner -->
-    <section class="hero" id="home-hero">
-      <div class="container">
-        <div class="grid-2">
-          <!-- Hero Text -->
-          <div class="hero-content">
-            <span class="section-tag gold">Holistic Healing & Biohacking Sanctuary</span>
-            <h1 class="hero-title">Green Mantra Wellness: <span class="accent">Find Your Path to Wellness</span></h1>
-            <p class="hero-subtitle">
-              Step into a serene retreat designed to restore your vitality. We harmoniously merge restorative holistic care with state-of-the-art biohacking technology to rejuvenate your body, mind, and spirit.
-            </p>
-            <div class="hero-buttons">
-              <a href="booking.html" class="btn btn-primary btn-lg" id="hero-book-btn">
-                <span>Book Now</span>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-              </a>
-              <a href="services.html" class="btn btn-outline btn-lg">Explore Services</a>
-            </div>
-            
-            <div class="hero-trust-badges">
-              <div class="trust-item">
-                <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
-                <span>Certified Practitioners</span>
-              </div>
-              <div class="trust-item">
-                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                <span>Restorative Spa Vibe</span>
-              </div>
-              <div class="trust-item">
-                <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm7 13H5v-.23c0-.62.28-1.2.76-1.58C7.47 15.82 9.64 15 12 15s4.53.82 6.24 2.19c.48.38.76.97.76 1.58V19z"/></svg>
-                <span>Jane App Booking</span>
-              </div>
-            </div>
-          </div>
+    <!-- Hero Banner (Full-Screen Aspect Ratio Mockup Style) -->
+  <section class="hero hero-mockup-style" id="home-hero" style="position: relative; width: 100%; min-height: 100vh; background: url('https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1600&q=80') center center / cover no-repeat; display: flex; flex-direction: column; justify-content: space-between; align-items: center; padding: 6rem 1.5rem 3rem 1.5rem; text-align: center; box-sizing: border-box;">
+    
+    <!-- Soft Overlay for Content Legibility -->
+    <div style="position: absolute; inset: 0; background: rgba(255, 255, 255, 0.45); backdrop-filter: blur(2px); z-index: 1;"></div>
 
-          <!-- Hero Visual & Overlays -->
-          <div class="hero-visual">
-            <div class="hero-card-main img-placeholder-wrapper">
-              <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80" alt="Green Mantra Wellness Calming Treatment Sanctuary Pickering" loading="lazy">
-              <!-- Visual Text Overlay Directive -->
-              <div class="image-overlay-badge">
-                <svg viewBox="0 0 24 24"><path d="M12 2L15 8L22 9L17 14L18 21L12 17.5L6 21L7 14L2 9L9 8L12 2Z"/></svg>
-                <span>[   Licensed Spa Sanctuary &amp; Treatment Room Image Here]</span>
-              </div>
-            </div>
-
-            <!-- Subtle Floating Accents -->
-            <div class="floating-badge top-right">
-              <div class="floating-badge-icon">
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-              </div>
-              <div class="floating-badge-text">
-                <h4>Cellular Rejuvenation</h4>
-                <p>LightStim &amp; Bemer PEMF</p>
-              </div>
-            </div>
-
-            <div class="floating-badge bottom-left">
-              <div class="floating-badge-icon">
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
-              </div>
-              <div class="floating-badge-text">
-                <h4>Tranquil Atmosphere</h4>
-                <p>Pure relaxation &amp; care</p>
-              </div>
-            </div>
-          </div>
-        </div>
+    <!-- Centered Hero Content -->
+    <div class="container" style="position: relative; z-index: 2; max-width: 850px; margin: auto 0;">
+      <!-- Main Brand Title / Name -->
+      <h1 class="hero-title" style="font-size: clamp(2.5rem, 5vw, 4rem); color: #2C3E35; font-weight: 500; margin-bottom: 0.5rem; letter-spacing: -0.5px; line-height: 1.15;">
+        Green Mantra Wellness
+      </h1>
+      
+      <!-- Slogan -->
+      <h2 style="font-size: clamp(1.3rem, 2.5vw, 1.8rem); color: #4A5568; font-weight: 400; margin-bottom: 1.25rem;">
+        Find Your Path to Wellness.
+      </h2>
+      
+      <!-- Short Description -->
+      <p class="hero-subtitle" style="font-size: 1.1rem; color: #334155; margin: 0 auto 2.25rem auto; font-weight: 400; line-height: 1.65; max-width: 720px;">
+        Step into a serene retreat designed to restore your vitality. We harmoniously merge restorative holistic care with state-of-the-art biohacking technology to rejuvenate your body, mind, and spirit.
+      </p>
+      
+      <!-- Book Now Button -->
+      <div style="display: flex; justify-content: center;">
+        <a href="booking.html" class="btn btn-primary" id="hero-book-btn" style="background-color: #6B7C66; color: #ffffff; padding: 0.85rem 2.5rem; font-size: 1.1rem; border-radius: 4px; text-decoration: none; display: inline-block; font-weight: 500; box-shadow: 0 4px 10px rgba(0,0,0,0.12); transition: background-color 0.3s ease;">
+          Book Now
+        </a>
       </div>
-    </section>
+    </div>
+
+    <!-- Center-Aligned 3 Trust Points -->
+    <div class="hero-trust-badges" style="position: relative; z-index: 2; width: 100%; max-width: 750px; display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 2rem; padding-top: 1.5rem; border-top: 1px solid rgba(44, 62, 53, 0.15); margin-top: auto;">
+      <div class="trust-item" style="display: flex; align-items: center; justify-content: center; gap: 0.5rem; font-size: 0.95rem; font-weight: 600; color: #2C3E35;">
+        <svg viewBox="0 0 24 24" style="width: 20px; height: 20px; fill: #4A7C59;"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+        <span>Certified Practitioners</span>
+      </div>
+      <div class="trust-item" style="display: flex; align-items: center; justify-content: center; gap: 0.5rem; font-size: 0.95rem; font-weight: 600; color: #2C3E35;">
+        <svg viewBox="0 0 24 24" style="width: 20px; height: 20px; fill: #4A7C59;"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <span>Restorative Spa Vibe</span>
+      </div>
+      <div class="trust-item" style="display: flex; align-items: center; justify-content: center; gap: 0.5rem; font-size: 0.95rem; font-weight: 600; color: #2C3E35;">
+        <svg viewBox="0 0 24 24" style="width: 20px; height: 20px; fill: #4A7C59;"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm7 13H5v-.23c0-.62.28-1.2.76-1.58C7.47 15.82 9.64 15 12 15s4.53.82 6.24 2.19c.48.38.76.97.76 1.58V19z"/></svg>
+        <span>Jane App Booking</span>
+      </div>
+    </div>
+  </section>
 
     <!-- Introductory "Welcome to Green Mantra" Text Block -->
-    <section class="section-padding bg-organic-texture">
-      <div class="container">
-        <div class="grid-2">
-          <div class="img-placeholder-wrapper" style="height: 440px;">
-            <img src="https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?auto=format&fit=crop&w=800&q=80" alt="Mindful relaxation space at Green Mantra Wellness" loading="lazy">
-            <div class="image-overlay-badge">
-              <svg viewBox="0 0 24 24"><path d="M12 2L15 8L22 9L17 14L18 21L12 17.5L6 21L7 14L2 9L9 8L12 2Z"/></svg>
-              <span>[   Licensed Holistic Lounge &amp; Relaxation Space Image Here]</span>
-            </div>
-          </div>
+  <section class="section-padding bg-organic-texture">
+    <div class="container">
+      
+      <!-- Top Centered Header Block -->
+      <div class="section-header center" style="margin-bottom: 3rem;">
+        <h2 style="font-size: clamp(2.4rem, 4vw, 3.2rem); color: #2C3E35; font-weight: 700; margin-bottom: 0.5rem; letter-spacing: -0.5px;">
+          Welcome to Green Mantra
+        </h2>
+        <p style="font-size: clamp(1.2rem, 2vw, 1.4rem); color: var(--color-primary); font-weight: 500; margin: 0;">
+          Where Modern Science Meets Spa Serenity
+        </p>
+      </div>
 
-          <div>
-            <span class="section-tag">Welcome to Green Mantra</span>
-            <h2>Where Modern Science Meets Spa Serenity</h2>
-            <p class="text-lead">
-              Welcome to Pickering's holistic retreat dedicated to restoring your body's innate equilibrium. At Green Mantra Wellness, we believe true vitality is cultivated when modern biohacking innovation is grounded in a calm, inviting environment.
-            </p>
-            <p>
-              Rather than a cold or clinical setting, we have curated an oasis of warmth, botanical beauty, and peaceful contemplation. Whether you are revitalizing at the cellular level with PEMF and Red Light or centering your nervous system through conscious breathwork and reflexology, you will experience personalized, compassionate care from our skilled practitioners.
-            </p>
-
-            <div class="welcome-badge-grid">
-              <div class="welcome-mini-card">
-                <div class="welcome-icon-wrap">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-                </div>
-                <h4>Evidence-Based Modalities</h4>
-                <p>Non-invasive technologies that energize cellular recovery.</p>
-              </div>
-              <div class="welcome-mini-card">
-                <div class="welcome-icon-wrap">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-                </div>
-                <h4>Holistic Whole-Person Care</h4>
-                <p>Nurturing protocols for physical, mental, and energetic balance.</p>
-              </div>
-            </div>
+      <!-- Content Grid: Image Left, Description Right -->
+      <div class="grid-2" style="align-items: center; gap: 3rem;">
+        
+        <!-- Sanctuary Image Left -->
+        <div class="img-placeholder-wrapper" style="height: 440px;">
+          <img src="https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?auto=format&fit=crop&w=800&q=80" alt="Mindful relaxation space at Green Mantra Wellness" loading="lazy">
+          <div class="image-overlay-badge">
+            <svg viewBox="0 0 24 24"><path d="M12 2L15 8L22 9L17 14L18 21L12 17.5L6 21L7 14L2 9L9 8L12 2Z"/></svg>
+            <span>[ Licensed Holistic Lounge &amp; Relaxation Space Image Here]</span>
           </div>
         </div>
+
+        <!-- Description Text Right -->
+        <!-- Description Text Right (Height-Matched to Image) -->
+        <div style="display: flex; flex-direction: column; justify-content: center; height: 100%; gap: 1.5rem;">
+          <p class="text-lead" style="font-size: 1.25rem; color: #334155; line-height: 1.8; margin-bottom: 0; font-weight: 400;">
+            Welcome to Pickering's holistic retreat dedicated to restoring your body's innate equilibrium. At Green Mantra Wellness, we believe true vitality is cultivated when modern biohacking innovation is grounded in a calm, inviting environment.
+          </p>
+          <p style="font-size: 1.1rem; color: #475569; line-height: 1.8; margin-bottom: 0;">
+            Rather than a cold or clinical setting, we have curated an oasis of warmth, botanical beauty, and peaceful contemplation. Whether you are revitalizing at the cellular level with PEMF and Red Light or centering your nervous system through conscious breathwork and reflexology, you will experience personalized, compassionate care from our skilled practitioners.
+          </p>
+        </div>
+
       </div>
-    </section>
+
+    </div>
+  </section>
 
     <!-- Service Highlights Section (4 Icon-Based Teaser Cards) -->
     <section class="section-padding bg-leaf-pattern">
