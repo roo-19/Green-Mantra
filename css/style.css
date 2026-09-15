@@ -2002,3 +2002,226 @@ textarea.form-control {
     padding: 1.8rem 1.2rem;
   }
 }
+
+
+/* ==========================================================================
+   BioCharger NG Page Specific Styles
+   ========================================================================== */
+
+/* Main BioCharger Layout */
+.biocharger-main-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 340px;
+  gap: 3rem;
+  align-items: flex-start;
+  width: 100%;
+}
+
+/* 4 Energy Pillars Grid */
+.energy-types-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+  margin: 1.8rem 0;
+}
+
+/* Machine Interface Feature Box */
+.interface-feature-box {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.8rem;
+  align-items: center;
+  background: var(--color-bg-alt);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 1.8rem;
+  margin: 2.5rem 0;
+}
+
+.interface-img-wrapper {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+.interface-img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Group Session Gallery */
+.group-gallery-section {
+  margin: 3rem 0;
+  background: #ffffff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+}
+
+.group-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-top: 1.25rem;
+}
+
+.gallery-item {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  height: 180px;
+  position: relative;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-smooth);
+}
+
+.gallery-item:hover img {
+  transform: scale(1.05);
+}
+
+.gallery-item-caption {
+  position: absolute;
+  bottom: 0;
+  inset-x: 0;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.75) 0%, transparent 100%);
+  color: #ffffff;
+  padding: 0.6rem 0.8rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+/* Hardware Spotlight Card */
+.device-spotlight-card {
+  background: linear-gradient(135deg, var(--color-primary-darker) 0%, var(--color-primary-dark) 100%);
+  color: #ffffff;
+  border-radius: var(--radius-lg);
+  padding: 2.2rem;
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 2rem;
+  align-items: center;
+  margin: 2.5rem 0;
+}
+
+.device-spotlight-card img {
+  width: 100%;
+  max-height: 220px;
+  object-fit: contain;
+}
+
+.device-spotlight-card h4 {
+  color: var(--color-gold-light);
+  font-size: 1.35rem;
+  margin-bottom: 0.6rem;
+}
+
+.device-spotlight-card p {
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 0.92rem;
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+
+/* Horizontal Testimonial Video Gallery */
+.video-gallery-wrapper {
+  margin: 3rem 0 2rem 0;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.video-scroll-container {
+  display: flex;
+  gap: 1.25rem;
+  overflow-x: auto;
+  padding-bottom: 1rem;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+.video-scroll-container::-webkit-scrollbar {
+  height: 6px;
+}
+
+.video-scroll-container::-webkit-scrollbar-track {
+  background: var(--color-bg-alt);
+  border-radius: 4px;
+}
+
+.video-scroll-container::-webkit-scrollbar-thumb {
+  background: var(--color-gold);
+  border-radius: 4px;
+}
+
+.video-card {
+  flex: 0 0 290px;
+  scroll-snap-align: start;
+  background: #ffffff;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-sm);
+}
+
+.video-embed-box {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%;
+  background: #000000;
+}
+
+.video-embed-box iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.video-card-caption {
+  padding: 0.85rem 1rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--color-primary-dark);
+}
+
+/* BioCharger Media Queries */
+@media (max-width: 992px) {
+  .biocharger-main-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .group-gallery-grid {
+    grid-template-columns: 1fr;
+  }
+  .gallery-item {
+    height: 220px;
+  }
+}
+
+@media (max-width: 680px) {
+  .interface-feature-box {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .energy-types-grid {
+    grid-template-columns: 1fr;
+  }
+  .device-spotlight-card {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .device-spotlight-card img {
+    margin: 0 auto;
+  }
+}
