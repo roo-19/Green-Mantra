@@ -2226,3 +2226,37 @@ textarea.form-control {
     margin: 0 auto;
   }
 }
+
+
+/* --- Global Staging Preview Banner --- */
+.staging-banner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 32px;
+  background-color: #1F3729; /* Dark Forest Green */
+  border-bottom: 2px solid #C5A059; /* Gold Accent */
+  color: #FFFFFF;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999;
+  pointer-events: none; /* Allows clicks to pass through to underlying elements */
+}
+
+/* Shift the Sticky Header Down */
+.site-header {
+  top: 32px !important;
+}
+
+/* Shift Mobile Navigation Menu Down (If Applicable) */
+@media (max-width: 860px) {
+  .nav-menu {
+    top: calc(var(--header-height) + 32px) !important;
+  }
+}
