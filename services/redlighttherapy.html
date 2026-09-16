@@ -104,9 +104,9 @@
   <main class="section-padding" style="background-color: var(--color-bg);">
     <div class="container">
 
-      <!-- Large Header Image with Visual Overlay -->
+      <!-- Hero Banner Image (Using lightstim3.jpg from Assests) -->
       <div class="service-hero-detail img-placeholder-wrapper">
-        <img src="https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&fit=crop&w=1400&q=80"
+        <img src="../Assests/lightstim3.jpg"
           alt="Medical Grade LightStim Red Light Photobiomodulation Session" loading="lazy">
         <div class="service-hero-overlay">
           <div>
@@ -116,14 +116,12 @@
             <p>Patented MultiWave® cellular charging engineered to boost ATP energy, rebuild collagen, and ease muscular pain without thermal damage.</p>
           </div>
         </div>
-        <!-- Visual Text Overlay Directive removed -->
-
       </div>
 
-      <!-- Main Layout: 2 Columns (Content + Sidebar) -->
-      <div class="grid-2" style="align-items: flex-start; gap: 3.5rem;">
+      <!-- Main Layout: 2 Columns (Content Left + Sidebar Right) -->
+      <div class="biocharger-main-layout">
 
-        <!-- Left: Detailed Content -->
+        <!-- Left Column: Detailed Content -->
         <div>
           <span class="section-tag">Therapy Overview</span>
           <h2>Fuel Your Cells with NASA-Engineered MultiWave® Technology</h2>
@@ -145,7 +143,20 @@
             </ul>
           </div>
 
-          <!-- Benefits Section -->
+          <!-- Hardware Spotlight (Using lightstim2.jpg) -->
+          <div class="device-spotlight-card">
+            <div>
+              <img src="../Assests/lightstim2.jpg" alt="LightStim Professional MultiWave Medical Panel">
+            </div>
+            <div>
+              <h4>Medical-Grade MultiWave® Panels</h4>
+              <p>
+                Our Pickering sanctuary utilizes professional LightStim Pro Panel systems mounted on flexible positioning arms. Designed with high-density LED arrays, these panels hover comfortably over targeted body areas to deliver uniform, high-intensity therapeutic light without touching your skin.
+              </p>
+            </div>
+          </div>
+
+          <!-- Benefits Grid Section -->
           <div style="margin: 3rem 0;">
             <span class="section-tag blue">Targeted Outcomes</span>
             <h3 style="font-size: 1.6rem; margin-bottom: 1.5rem;">Key Benefits of LightStim Sessions</h3>
@@ -194,6 +205,30 @@
             </div>
           </div>
 
+          <!-- Targeted Treatment Applications Gallery (Using lightstim5, lightstim1, lightstim4) -->
+          <div class="group-gallery-section">
+            <span class="section-tag gold">Versatile Treatment Applications</span>
+            <h3 style="font-size: 1.4rem; margin-bottom: 0.5rem;">Targeted Light Care for Every Part of Your Body</h3>
+            <p style="font-size: 0.92rem; color: var(--color-text-muted); margin-bottom: 0;">
+              Whether addressing facial collagen, arthritic hand joints, or chronic upper back stiffness, LightStim panels adjust seamlessly to your body’s unique contours.
+            </p>
+
+            <div class="group-gallery-grid">
+              <div class="gallery-item">
+                <img src="../Assests/lightstim5.jpg" alt="LightStim Facial Rejuvenation & Collagen Session">
+                <div class="gallery-item-caption">Facial Rejuvenation & Glow</div>
+              </div>
+              <div class="gallery-item">
+                <img src="../Assests/lightstim1.jpg" alt="LightStim Hand & Joint Pain Therapy">
+                <div class="gallery-item-caption">Hand & Joint Pain Relief</div>
+              </div>
+              <div class="gallery-item">
+                <img src="../Assests/lightstim4.jpg" alt="LightStim Neck, Back & Shoulder Recovery">
+                <div class="gallery-item-caption">Back & Shoulder Recovery</div>
+              </div>
+            </div>
+          </div>
+
           <!-- How It Works & What to Expect -->
           <div style="margin-bottom: 3rem;">
             <span class="section-tag gold">Session Guide</span>
@@ -223,7 +258,7 @@
 
         </div>
 
-        <!-- Right: Sticky Service Quick Facts & Booking Card -->
+        <!-- Right Column: Sticky Service Quick Facts & Sidebar Spec Sheet -->
         <aside class="service-sidebar">
           <span class="section-tag gold" style="margin-bottom: 0.6rem;">Treatment Spec Sheet</span>
           <h3 style="font-size: 1.4rem; margin-bottom: 1.5rem;">Service Details</h3>
@@ -298,8 +333,7 @@
             </div>
             <span>Green Mantra <span class="highlight" style="color:var(--color-accent-light);">Wellness</span></span>
           </div>
-          <p>Pickering's serene holistic destination for restorative healing, biohacking vitality, and mindful human
-            wellness.</p>
+          <p>Pickering's serene holistic destination for restorative healing, biohacking vitality, and mindful human wellness.</p>
           <div class="social-links">
             <a href="https://facebook.com" class="social-icon-btn" aria-label="Facebook" target="_blank"
               rel="noopener noreferrer">
@@ -342,7 +376,7 @@
           <div class="footer-links">
             <a href="redlighttherapy.html">Red Light (LightStim)</a>
             <a href="../services.html">PEMF Therapy (Bemer)</a>
-            <a href="../services.html">BioCharger NG</a>
+            <a href="biocharger.html">BioCharger NG</a>
             <a href="../services.html">NanoVi Device</a>
             <a href="../services.html">Reflexology</a>
             <a href="../services.html">Transformational Breathwork</a>
