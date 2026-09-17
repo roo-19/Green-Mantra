@@ -213,3 +213,45 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
+
+/* ==========================================================================
+   SCROLL REVEAL OBSERVER & INTERACTIVE MOTION
+   ========================================================================== */
+document.addEventListener("DOMContentLoaded", () => {
+  // IntersectionObserver for Scroll Animations
+  const scrollElements = document.querySelectorAll('.animate-on-scroll');
+
+  const elementInView = (entries, observer) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target); // Trigger once
+      }
+    });
+  };
+
+  const observer = new IntersectionObserver(elementInView, {
+    root: null,
+    rootMargin: '0px 0px -50px 0px',
+    threshold: 0.15
+  });
+
+  scrollElements.forEach((el) => observer.observe(el));
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const scrollElements = document.querySelectorAll('.animate-on-scroll');
+  
+  if (scrollElements.length > 0) {
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          obs.unobserve(entry.target); // Prevents re-triggering once revealed
+        }
+      });
+    }, { threshold: 0.05 }); // Triggers reveal as soon as 5% of the element enters the viewport
+
+    scrollElements.forEach((el) => observer.observe(el));
+  }
+});
