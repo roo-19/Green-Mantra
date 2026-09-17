@@ -2424,9 +2424,42 @@ main {
   }
 }
 
-.brand-logo-img {
-  height: 42px;
+
+
+
+/* --- Footer Brand Logo & 2-Line Text Layout --- */
+.footer-brand-logo-wrap {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+/* Enlarge the footer logo image to fill empty vertical space */
+.footer-logo-img {
+  height: 120px; /* Adjust height up/down to match desired scale */
   width: auto;
   object-fit: contain;
   display: block;
+}
+
+/* Flex column to stack "Green Mantra" and "Wellness" onto 2 lines */
+.footer-brand-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+  font-family: var(--font-heading, 'Outfit', sans-serif);
+}
+
+.footer-brand-text .brand-line-1 {
+  font-size: 1.65rem;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+}
+
+.footer-brand-text .brand-line-2 {
+  font-size: 1.45rem;
+  font-weight: 400;
+  color: var(--color-accent-light, #E4EEE7);
 }
