@@ -71,15 +71,25 @@
     </div>
   </header>
 
-  <!-- Page Hero -->
-  <section class="page-hero">
+  <!-- Page Hero Banner with Text Overlay on Hero Image -->
+  <section class="page-hero" style="padding: 2.5rem 0 1.5rem 0; text-align: center;">
     <div class="container">
-      <span class="section-tag gold">Patient &amp; Client Scheduling</span>
-      <h1>Book Your Appointment</h1>
-      <p class="text-lead" style="max-width: 680px; margin: 0 auto;">
-        Reserve your session through our upcoming Jane App portal or submit your requested date and therapy via our direct appointment form below.
-      </p>
-      <div class="breadcrumbs">
+      
+      <!-- Main Hero Feature Image Container with Embedded Content Overlay -->
+      <div class="service-hero-detail img-placeholder-wrapper" style="position: relative; height: 460px; border-radius: var(--radius-xl); overflow: hidden; box-shadow: var(--shadow-lg);">
+        <img src="Assests/bookinghero.jpg" alt="Green Mantra Wellness Treatment Sanctuary" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+        
+        <!-- Dark Gradient Overlay for Maximum Text Contrast -->
+        <div class="service-hero-overlay" style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(35, 61, 43, 0.4) 0%, rgba(35, 61, 43, 0.85) 100%); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 2.5rem 1.5rem; color: #ffffff;">
+          <span class="section-tag gold" style="background: rgba(247, 238, 219, 0.95); color: var(--color-primary-dark); margin-bottom: 1.2rem;">Patient &amp; Client Scheduling</span>
+          <h1 style="color: #ffffff; font-size: clamp(2.2rem, 4vw, 3.4rem); margin-bottom: 1rem; text-shadow: 0 2px 10px rgba(0,0,0,0.35);">Book Your Appointment</h1>
+          <p class="text-lead" style="max-width: 680px; margin: 0 auto; color: rgba(255, 255, 255, 0.94); font-size: 1.15rem; line-height: 1.65; text-shadow: 0 1px 4px rgba(0,0,0,0.3);">
+            Reserve your session through our secure Jane App portal below or submit your requested date and therapy via our direct appointment form.
+          </p>
+        </div>
+      </div>
+
+      <div class="breadcrumbs" style="margin-top: 1.5rem; justify-content: center;">
         <a href="index.html">Home</a>
         <span>&rsaquo;</span>
         <span>Booking</span>
@@ -88,7 +98,7 @@
   </section>
 
   <!-- Main Booking Area -->
-  <main class="section-padding" style="background-color: var(--color-bg);">
+  <main class="section-padding" style="background-color: var(--color-bg); padding-top: 2rem;">
     <div class="container">
       
       <!-- 3 Booking Steps -->
@@ -118,69 +128,56 @@
         </div>
       </div>
 
-      <!-- Required Jane App Booking Widget Placeholder Container -->
-      <div class="jane-placeholder-container animate-on-scroll">
-        <div class="jane-icon-badge">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      <!-- Live Jane App Booking Portal Hub Card -->
+      <div class="jane-live-container animate-on-scroll" style="background: linear-gradient(135deg, #ffffff 0%, var(--color-sage-subtle) 100%); border-radius: var(--radius-xl); border: 1px solid var(--color-border); box-shadow: var(--shadow-lg); padding: 4rem 2rem; text-align: center; margin-bottom: 4rem;">
+        
+        <!-- Enlarged Official Jane Logo Asset -->
+        <div style="margin: 0 auto 1.8rem auto; max-width: 340px; display: flex; align-items: center; justify-content: center;">
+          <img src="Assests/jane logo2.png" alt="Jane App Logo" style="max-height: 110px; width: auto; object-fit: contain; filter: drop-shadow(0 2px 8px rgba(0,0,0,0.06));">
         </div>
-
-        <div class="jane-status-tag">
-          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-          <span>Jane App Integration</span>
-        </div>
-
-        <h2>Jane App Booking</h2>
-        <p style="max-width: 620px; margin: 0 auto 1.5rem auto; color: var(--color-text-muted);">
-          Our automated online scheduling system powered by Jane App is being finalized. In the interim, please use the direct appointment request form below or call our front desk directly at <a href="tel:9055550198" style="color: var(--color-primary); font-weight: 600;">(905) 555-0198</a>.
+        
+        <h2 style="font-size: 2.2rem; color: var(--color-primary-darker); margin-bottom: 0.85rem;">Ready to Book Your Session?</h2>
+        
+        <p style="max-width: 580px; margin: 0 auto 2.2rem auto; color: var(--color-text-muted); font-size: 1.05rem; line-height: 1.65;">
+          Access our live scheduling system to select your treatment, choose your practitioner, and confirm available time slots instantly.
         </p>
 
-        <!-- Visual Mock Calendar UI to illustrate rich state -->
-        <div class="jane-mock-calendar">
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--color-border-light);">
-            <strong style="color: var(--color-primary-dark); font-family: var(--font-heading);">Select Treatment Room / Practitioner</strong>
-            <span class="pill-badge" style="background-color: var(--color-sage-light);">Pickering Clinic</span>
-          </div>
-          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem; text-align: center;">
-            <div style="padding: 0.8rem; background: #fff; border-radius: var(--radius-sm); border: 1px solid var(--color-border); font-size: 0.82rem;">
-              <strong>Morning</strong><br><span style="color: var(--color-primary);">9:00 AM - 12:00 PM</span>
-            </div>
-            <div style="padding: 0.8rem; background: #fff; border-radius: var(--radius-sm); border: 1px solid var(--color-border); font-size: 0.82rem;">
-              <strong>Afternoon</strong><br><span style="color: var(--color-primary);">12:30 PM - 4:00 PM</span>
-            </div>
-            <div style="padding: 0.8rem; background: #fff; border-radius: var(--radius-sm); border: 1px solid var(--color-border); font-size: 0.82rem;">
-              <strong>Evening</strong><br><span style="color: var(--color-primary);">4:30 PM - 7:00 PM</span>
-            </div>
-          </div>
+        <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+          <a href="https://greenmantrawellness.janeapp.com" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg" style="padding: 1.1rem 2.8rem; font-size: 1.1rem; box-shadow: 0 4px 14px rgba(35, 61, 43, 0.2);">
+            <span>Launch Online Scheduler</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
         </div>
+
       </div>
 
-      <!-- Fallback Contact & Appointment Booking Form -->
-      <div class="container-narrow">
-        <div class="booking-form-box animate-on-scroll">
-          <div class="section-header center" style="margin-bottom: 2rem;">
+      <!-- Centered Direct Request Form Section -->
+      <div class="container-narrow" style="max-width: 760px; margin: 0 auto;">
+        <div class="booking-form-box animate-on-scroll" style="text-align: center;">
+          <div class="section-header center" style="margin-bottom: 2rem; text-align: center;">
             <span class="section-tag">Direct Request</span>
             <h2>Appointment Request Form</h2>
-            <p>Fill out your details and desired therapies. Our coordinator will contact you promptly to confirm your exact time.</p>
+            <p style="max-width: 580px; margin: 0.5rem auto 0 auto;">Fill out your details and desired therapies. Our coordinator will contact you promptly to confirm your exact time.</p>
           </div>
 
-          <form id="booking-request-form" class="booking-form">
+          <form id="booking-request-form" class="booking-form" style="text-align: center;">
             <div class="form-row-2">
-              <div class="form-group">
+              <div class="form-group" style="text-align: left;">
                 <label for="book-name" class="form-label">Full Name *</label>
                 <input type="text" id="book-name" class="form-control" placeholder="e.g. Jordan Miller" required>
               </div>
-              <div class="form-group">
+              <div class="form-group" style="text-align: left;">
                 <label for="book-email" class="form-label">Email Address *</label>
                 <input type="email" id="book-email" class="form-control" placeholder="jordan@example.com" required>
               </div>
             </div>
 
             <div class="form-row-2">
-              <div class="form-group">
+              <div class="form-group" style="text-align: left;">
                 <label for="book-phone" class="form-label">Phone Number *</label>
                 <input type="tel" id="book-phone" class="form-control" placeholder="(905) 555-0123" required>
               </div>
-              <div class="form-group">
+              <div class="form-group" style="text-align: left;">
                 <label for="book-service" class="form-label">Desired Therapy / Modality *</label>
                 <select id="book-service" class="form-control" required>
                   <option value="" disabled selected>Select a Service...</option>
@@ -199,11 +196,11 @@
             </div>
 
             <div class="form-row-2">
-              <div class="form-group">
+              <div class="form-group" style="text-align: left;">
                 <label for="book-date" class="form-label">Preferred Date *</label>
                 <input type="date" id="book-date" class="form-control" required>
               </div>
-              <div class="form-group">
+              <div class="form-group" style="text-align: left;">
                 <label for="book-time" class="form-label">Preferred Time Window *</label>
                 <select id="book-time" class="form-control" required>
                   <option value="" disabled selected>Select Time of Day...</option>
@@ -214,13 +211,13 @@
               </div>
             </div>
 
-            <div class="form-group">
+            <div class="form-group" style="text-align: left;">
               <label for="book-notes" class="form-label">Health Goals or Specific Inquiries</label>
               <textarea id="book-notes" class="form-control" placeholder="Please mention any health concerns, areas of physical focus, or specific questions for your practitioner..."></textarea>
             </div>
 
-            <div style="text-align: center; margin-top: 2rem;">
-              <button type="submit" class="btn btn-primary btn-lg" style="min-width: 240px;">
+            <div style="display: flex; justify-content: center; margin-top: 2rem;">
+              <button type="submit" class="btn btn-primary btn-lg" style="min-width: 260px;">
                 <span>Submit Appointment Request</span>
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
               </button>
