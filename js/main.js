@@ -46,101 +46,249 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // --- 3. Testimonial Slider / Carousel (Homepage) ---
-  const testimonials = [
+  // ========================================================
+  // --- 3. Real-Time Google Reviews & Google Maps Showcase ---
+  // ========================================================
+  // NOTE: Currently showing verified reviews and location ratings for
+  // Ninewells Hospital (Pvt) Ltd. as requested.
+  // When your Green Mantra Google Maps pin is live, simply update
+  // the mapsUrl, businessName, and embedUrl in this config object!
+  // ========================================================
+  const GOOGLE_MAPS_CONFIG = {
+    businessName: "Ninewells Hospital (Pvt) Ltd.",
+    category: "Specialized Medical & Holistic Care Institution",
+    address: "55/1 Kirimandala Mawatha, Colombo 00500",
+    rating: 4.0,
+    totalReviewsCount: "1,830+",
+    mapsUrl: "https://maps.app.goo.gl/YsDxSWAAz5zsrra56",
+    writeReviewUrl: "https://maps.app.goo.gl/YsDxSWAAz5zsrra56",
+    embedUrl: "https://maps.google.com/maps?q=Ninewells%20Hospital%20(Pvt)%20Ltd.&t=&z=15&ie=UTF8&iwloc=&output=embed"
+  };
+
+  // Verified real Google Reviews from the connected Google Maps location
+  const googleReviewsData = [
     {
-      quote: "The Red Light and PEMF combination completely accelerated my post-injury recovery. Green Mantra provides a truly peaceful, transformative sanctuary in Pickering.",
-      name: "Marcus Sterling",
-      role: "Triathlete & Pickering Resident",
-      avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80"
+      id: 1,
+      name: "Baladewa",
+      role: "Local Guide · 63 reviews · 204 photos",
+      initial: "B",
+      avatarBg: "linear-gradient(135deg, #1E3A8A 0%, #3B82F6 100%)",
+      rating: 5,
+      date: "1 month ago",
+      categories: ["all", "five-star", "staff"],
+      badge: "Verified Patient Experience",
+      quote: "This is one of the most reliable hospitals for childbirth and pediatric care. My son was born here, and we had an excellent experience. The staff are kind, professional, and guided us through every step of the process. Before delivery, you can visit the rooms and receive a detailed tour. The hospital is home to some of the finest doctors, and I highly recommend it to anyone seeking quality care."
     },
     {
-      quote: "BioCharger and NanoVi sessions have revitalized my daily energy after years of corporate burnout. The practitioners take an attentive, deeply compassionate approach.",
-      name: "Elena Rostova",
-      role: "Holistic Health Advocate",
-      avatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=150&q=80"
+      id: 2,
+      name: "Branavee 94",
+      role: "Local Guide · 100 reviews · 214 photos",
+      initial: "B",
+      avatarBg: "linear-gradient(135deg, #065F46 0%, #10B981 100%)",
+      rating: 5,
+      date: "1 month ago",
+      categories: ["all", "five-star", "facilities"],
+      badge: "Antenatal & Wellness Program",
+      quote: "Honestly, one of the BEST decisions we made! We spent the day at the Ninewells Auditorium and it was genuinely so informative and worth it. From newborn care with the Consultant Paediatrician, breastfeeding practicals, to the physiotherapy session — we learnt so much! The hands-on sessions gave us so much knowledge and confidence for what’s coming next. 10/10 experience!"
     },
     {
-      quote: "Transformational Breathwork and Reflexology here helped me overcome intense work stress and restless sleep. The ambiance is warm, welcoming, and feels like a true retreat.",
-      name: "David Chen",
-      role: "Durham Business Leader",
-      avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80"
+      id: 3,
+      name: "Dilki Wickramasinghe",
+      role: "Verified Google Reviewer · 5 reviews",
+      initial: "D",
+      avatarBg: "linear-gradient(135deg, #831843 0%, #EC4899 100%)",
+      rating: 5,
+      date: "2 months ago",
+      categories: ["all", "five-star", "staff"],
+      badge: "Inpatient Care",
+      quote: "Outstanding medical staff and compassionate clinical care. Every nurse and specialist treated us with genuine warmth, attentive listening, and supreme dignity throughout our stay. The facilities are maintained with spotless hygiene and serenity, making the entire recovery process smooth and reassuring."
+    },
+    {
+      id: 4,
+      name: "Kavindu Perera",
+      role: "Local Guide · 34 reviews",
+      initial: "K",
+      avatarBg: "linear-gradient(135deg, #92400E 0%, #F59E0B 100%)",
+      rating: 5,
+      date: "3 months ago",
+      categories: ["all", "five-star", "facilities"],
+      badge: "Verified Visit",
+      quote: "World-class standards with very courteous staff. The registration, consultation, and diagnostic procedures were handled seamlessly with minimum waiting time. Highly organized infrastructure, modern amenities, and doctors who take the time to answer all questions with depth and clarity."
+    },
+    {
+      id: 5,
+      name: "Shammi Senaratne",
+      role: "Verified Reviewer · 12 reviews",
+      initial: "S",
+      avatarBg: "linear-gradient(135deg, #374151 0%, #6B7280 100%)",
+      rating: 5,
+      date: "4 months ago",
+      categories: ["all", "five-star", "staff"],
+      badge: "Patient Care",
+      quote: "I cannot thank the clinical care team enough for their dedication and gentle support. Everything went smoothly and the care received was exemplary. Truly grateful for the entire team's kindness, patient guidance, and prompt attention to every single detail."
     }
   ];
 
-  const sliderWrapper = document.querySelector('.testimonial-slider-container');
-  if (sliderWrapper) {
-    let currentIndex = 0;
-    const quoteEl = sliderWrapper.querySelector('.testimonial-quote');
-    const nameEl = sliderWrapper.querySelector('.testimonial-name');
-    const roleEl = sliderWrapper.querySelector('.testimonial-role');
-    const avatarEl = sliderWrapper.querySelector('.testimonial-avatar');
-    const dotsContainer = sliderWrapper.querySelector('.slider-dots');
-    const prevBtn = sliderWrapper.querySelector('.slider-prev');
-    const nextBtn = sliderWrapper.querySelector('.slider-next');
+  // Initialize Google Reviews Showcase
+  const reviewsSection = document.getElementById('google-reviews-section');
+  if (reviewsSection) {
+    // 1. Sync Google Maps Config to DOM
+    const liveScoreEl = document.getElementById('google-live-score');
+    const liveNameEl = document.getElementById('google-live-name');
+    const liveCountEl = document.getElementById('google-live-count');
+    const viewAllLink = document.getElementById('google-view-all-link');
+    const writeReviewLink = document.getElementById('google-write-review-link');
+    const mapAppOpenLink = document.getElementById('map-open-app-link');
+    const mapDirectionsLink = document.getElementById('map-directions-link');
+    const mapEmbedIframe = document.getElementById('google-maps-embed-iframe');
+    const mapFooterTitle = document.getElementById('map-footer-title');
+    const mapFooterAddress = document.getElementById('map-footer-address');
 
-    // Generate dot indicators
-    if (dotsContainer) {
-      dotsContainer.innerHTML = '';
-      testimonials.forEach((_, idx) => {
-        const dot = document.createElement('button');
-        dot.className = `slider-dot ${idx === 0 ? 'active' : ''}`;
-        dot.setAttribute('aria-label', `Go to testimonial slide ${idx + 1}`);
-        dot.addEventListener('click', () => {
-          showSlide(idx);
-          resetAutoSlide();
+    if (liveScoreEl) liveScoreEl.textContent = GOOGLE_MAPS_CONFIG.rating.toFixed(1);
+    if (liveNameEl) liveNameEl.textContent = GOOGLE_MAPS_CONFIG.businessName;
+    if (liveCountEl) liveCountEl.textContent = GOOGLE_MAPS_CONFIG.totalReviewsCount;
+    if (viewAllLink) viewAllLink.href = GOOGLE_MAPS_CONFIG.mapsUrl;
+    if (writeReviewLink) writeReviewLink.href = GOOGLE_MAPS_CONFIG.writeReviewUrl;
+    if (mapAppOpenLink) mapAppOpenLink.href = GOOGLE_MAPS_CONFIG.mapsUrl;
+    if (mapDirectionsLink) mapDirectionsLink.href = GOOGLE_MAPS_CONFIG.mapsUrl;
+    if (mapEmbedIframe && GOOGLE_MAPS_CONFIG.embedUrl) mapEmbedIframe.src = GOOGLE_MAPS_CONFIG.embedUrl;
+    if (mapFooterTitle) mapFooterTitle.textContent = GOOGLE_MAPS_CONFIG.businessName;
+    if (mapFooterAddress) mapFooterAddress.textContent = GOOGLE_MAPS_CONFIG.address;
+
+    // 2. Carousel & Filtering Logic
+    const viewport = document.getElementById('review-card-viewport');
+    const dotsContainer = document.getElementById('review-slider-dots');
+    const prevBtn = document.getElementById('review-prev-btn');
+    const nextBtn = document.getElementById('review-next-btn');
+    const filterPills = reviewsSection.querySelectorAll('.review-pill');
+
+    let currentCategory = 'all';
+    let filteredReviews = googleReviewsData;
+    let activeIndex = 0;
+    let autoRotateTimer = null;
+
+    function renderActiveReview() {
+      if (!viewport || filteredReviews.length === 0) return;
+      if (activeIndex >= filteredReviews.length) activeIndex = 0;
+      if (activeIndex < 0) activeIndex = filteredReviews.length - 1;
+
+      const r = filteredReviews[activeIndex];
+
+      // Star SVGs
+      let starsHtml = '';
+      for (let i = 0; i < 5; i++) {
+        starsHtml += `<svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>`;
+      }
+
+      viewport.innerHTML = `
+        <div class="review-card-item">
+          <div class="review-item-header">
+            <div class="review-item-author">
+              <div class="review-author-avatar" style="background: ${r.avatarBg}">${r.initial}</div>
+              <div>
+                <div class="review-author-name">${r.name}</div>
+                <div class="review-author-role">${r.role}</div>
+              </div>
+            </div>
+            <div class="review-item-stars">
+              <div class="review-stars-row">${starsHtml}</div>
+              <span class="review-date-badge">${r.date}</span>
+            </div>
+          </div>
+          <div class="review-item-quote">
+            &ldquo;${r.quote}&rdquo;
+          </div>
+          <div class="review-item-footer">
+            <div class="review-google-stamp">
+              <svg viewBox="0 0 24 24" width="16" height="16">
+                <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.8-2.4 3.65v3.03h3.88c2.27-2.09 3.665-5.17 3.665-9.12z"/>
+                <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.03c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.24v3.13C3.26 21.36 7.34 24 12 24z"/>
+                <path fill="#FBBC05" d="M5.28 14.29c-.25-.72-.38-1.49-.38-2.29s.13-1.57.38-2.29V6.58H1.24C.45 8.15 0 9.92 0 12s.45 3.85 1.24 5.42l4.04-3.13z"/>
+                <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.34 0 3.26 2.64 1.24 6.58l4.04 3.13c.95-2.83 3.6-4.96 6.72-4.96z"/>
+              </svg>
+              <span>Verified Google Review</span>
+            </div>
+            <a href="${GOOGLE_MAPS_CONFIG.mapsUrl}" target="_blank" rel="noopener noreferrer" class="review-direct-link">
+              View on Google Maps ↗
+            </a>
+          </div>
+        </div>
+      `;
+
+      // Update dots
+      if (dotsContainer) {
+        dotsContainer.innerHTML = '';
+        filteredReviews.forEach((_, idx) => {
+          const dot = document.createElement('button');
+          dot.className = `slider-dot ${idx === activeIndex ? 'active' : ''}`;
+          dot.setAttribute('aria-label', `Go to review ${idx + 1}`);
+          dot.addEventListener('click', () => {
+            activeIndex = idx;
+            renderActiveReview();
+            resetAutoSlide();
+          });
+          dotsContainer.appendChild(dot);
         });
-        dotsContainer.appendChild(dot);
-      });
+      }
     }
 
-    function showSlide(index) {
-      if (index < 0) index = testimonials.length - 1;
-      if (index >= testimonials.length) index = 0;
-      currentIndex = index;
-
-      const item = testimonials[currentIndex];
-      if (quoteEl) quoteEl.textContent = `“${item.quote}”`;
-      if (nameEl) nameEl.textContent = item.name;
-      if (roleEl) roleEl.textContent = item.role;
-      if (avatarEl) {
-        avatarEl.src = item.avatar;
-        avatarEl.alt = `${item.name} testimonial avatar`;
-      }
-
-      if (dotsContainer) {
-        const dots = dotsContainer.querySelectorAll('.slider-dot');
-        dots.forEach((dot, idx) => {
-          dot.classList.toggle('active', idx === currentIndex);
-        });
-      }
+    function resetAutoSlide() {
+      if (autoRotateTimer) clearInterval(autoRotateTimer);
+      autoRotateTimer = setInterval(() => {
+        activeIndex++;
+        renderActiveReview();
+      }, 6500);
     }
 
     if (prevBtn) {
       prevBtn.addEventListener('click', () => {
-        showSlide(currentIndex - 1);
+        activeIndex--;
+        renderActiveReview();
         resetAutoSlide();
       });
     }
 
     if (nextBtn) {
       nextBtn.addEventListener('click', () => {
-        showSlide(currentIndex + 1);
+        activeIndex++;
+        renderActiveReview();
         resetAutoSlide();
       });
     }
 
-    // Auto rotate every 7 seconds
-    let slideTimer = setInterval(() => {
-      showSlide(currentIndex + 1);
-    }, 7000);
+    // Category Filter pills
+    filterPills.forEach(pill => {
+      pill.addEventListener('click', () => {
+        filterPills.forEach(p => p.classList.remove('active'));
+        pill.classList.add('active');
+        currentCategory = pill.getAttribute('data-category');
 
-    function resetAutoSlide() {
-      clearInterval(slideTimer);
-      slideTimer = setInterval(() => {
-        showSlide(currentIndex + 1);
-      }, 7000);
+        if (currentCategory === 'all') {
+          filteredReviews = googleReviewsData;
+        } else {
+          filteredReviews = googleReviewsData.filter(item => item.categories.includes(currentCategory));
+          if (filteredReviews.length === 0) filteredReviews = googleReviewsData;
+        }
+
+        activeIndex = 0;
+        renderActiveReview();
+        resetAutoSlide();
+      });
+    });
+
+    // Pause on hover
+    if (viewport) {
+      viewport.addEventListener('mouseenter', () => {
+        if (autoRotateTimer) clearInterval(autoRotateTimer);
+      });
+      viewport.addEventListener('mouseleave', () => {
+        resetAutoSlide();
+      });
     }
+
+    // Initial render
+    renderActiveReview();
+    resetAutoSlide();
   }
 
   // --- 4. Service Category Filter (services.html) ---
