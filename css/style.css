@@ -3610,3 +3610,154 @@ main {
   font-weight: 400;
   color: var(--color-accent-light, #E4EEE7);
 }
+
+/* --- 24. Careers & Practitioner Collaboration Page --- */
+.career-hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(247, 238, 219, 0.95);
+  color: var(--color-primary-dark);
+  padding: 0.45rem 1.25rem;
+  border-radius: var(--radius-full);
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  margin-bottom: 1.2rem;
+}
+
+.career-perk-card {
+  background: #ffffff;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  padding: 2.2rem 1.8rem;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-normal);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+.career-perk-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+  border-color: rgba(74, 124, 89, 0.4);
+}
+
+.career-perk-icon {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.2rem;
+  background: linear-gradient(135deg, var(--color-sage-light) 0%, var(--color-bg-alt) 100%);
+  color: var(--color-primary);
+  border: 1px solid rgba(74, 124, 89, 0.2);
+}
+
+.career-role-card {
+  background: #ffffff;
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--color-border);
+  padding: 2.5rem;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-normal);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+.career-role-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(44, 62, 53, 0.08);
+  border-color: var(--color-gold);
+}
+
+.career-role-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 1.2rem;
+}
+
+.career-role-title {
+  font-size: 1.35rem;
+  color: var(--color-primary-dark);
+  margin-bottom: 0.35rem;
+}
+
+.career-role-type {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 0.35rem 0.85rem;
+  border-radius: var(--radius-full);
+  background: var(--color-gold-light);
+  color: var(--color-gold-dark);
+}
+
+.career-role-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  margin-bottom: 1.2rem;
+}
+
+.career-role-meta-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.career-checklist {
+  list-style: none;
+  padding: 0;
+  margin: 1.2rem 0 1.8rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.career-checklist li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  font-size: 0.92rem;
+  color: var(--color-text-main);
+  line-height: 1.5;
+}
+
+.career-checklist li svg {
+  flex-shrink: 0;
+  margin-top: 2px;
+  color: var(--color-primary);
+}
+
+.career-culture-banner {
+  background: linear-gradient(135deg, var(--color-primary-darker) 0%, var(--color-primary) 100%);
+  border-radius: var(--radius-xl);
+  color: #ffffff;
+  padding: 3.5rem 3rem;
+  margin: 4.5rem 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.career-culture-banner::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(194, 155, 56, 0.15) 1px, transparent 0);
+  background-size: 24px 24px;
+  pointer-events: none;
+}

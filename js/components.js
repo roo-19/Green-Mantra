@@ -41,6 +41,7 @@
       const isHome = page === 'index.html' || page === '';
       const isAbout = page === 'about.html';
       const isTeam = page === 'team.html';
+      const isCareers = page === 'careers.html';
       const isContact = page === 'contact.html';
 
       this.innerHTML = `
@@ -186,6 +187,7 @@
 
               <a href="${base}about.html" class="nav-link ${isAbout ? 'active' : ''}">About Us</a>
               <a href="${base}team.html" class="nav-link ${isTeam ? 'active' : ''}">Our Team</a>
+              <a href="${base}careers.html" class="nav-link ${isCareers ? 'active' : ''}">Careers</a>
               <a href="${base}contact.html" class="nav-link ${isContact ? 'active' : ''}">Contact</a>
             </nav>
 
@@ -313,6 +315,7 @@
                   <a href="${base}services.html">Services Menu</a>
                   <a href="${base}about.html">About Us</a>
                   <a href="${base}team.html">Our Team</a>
+                  <a href="${base}careers.html">Careers &amp; Opportunities</a>
                   <a href="${base}booking.html">Book Appointment</a>
                   <a href="${base}contact.html">Contact &amp; Location</a>
                 </div>
