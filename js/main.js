@@ -420,3 +420,298 @@ document.addEventListener("DOMContentLoaded", () => {
     scrollElements.forEach((el) => observer.observe(el));
   }
 });
+
+/* ==========================================================================
+   MODERN CUSTOM DROPDOWN SELECT SYSTEM
+   ========================================================================== */
+function initCustomSelects() {
+  const selects = document.querySelectorAll('select.form-control:not([data-custom-select="true"])');
+
+  selects.forEach(select => {
+    select.setAttribute('data-custom-select', 'true');
+    select.classList.add('custom-select-native');
+
+    // Create wrapper
+    const wrapper = document.createElement('div');
+    wrapper.className = 'custom-select-wrapper';
+    if (select.id) {
+      wrapper.setAttribute('data-for', select.id);
+    }
+
+    select.parentNode.insertBefore(wrapper, select);
+    wrapper.appendChild(select);
+
+    // Create trigger button matching user's reference
+    const trigger = document.createElement('div');
+    trigger.className = 'custom-select-trigger';
+    trigger.setAttribute('tabindex', '0');
+    trigger.setAttribute('role', 'combobox');
+    trigger.setAttribute('aria-expanded', 'false');
+    trigger.setAttribute('aria-haspopup', 'listbox');
+
+    const selectionWrap = document.createElement('div');
+    selectionWrap.className = 'custom-select-selection';
+
+    const valueSpan = document.createElement('span');
+    valueSpan.className = 'custom-select-value';
+    selectionWrap.appendChild(valueSpan);
+
+    const chevron = document.createElement('span');
+    chevron.className = 'custom-select-chevron';
+    chevron.innerHTML = `
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="6 9 12 15 18 9"></polyline>
+      </svg>
+    `;
+
+    trigger.appendChild(selectionWrap);
+    trigger.appendChild(chevron);
+    wrapper.appendChild(trigger);
+
+    // Create floating Panel
+    const panel = document.createElement('div');
+    panel.className = 'custom-select-panel';
+    panel.setAttribute('role', 'listbox');
+
+    const optionsList = document.createElement('div');
+    optionsList.className = 'custom-select-options-list';
+    panel.appendChild(optionsList);
+
+    wrapper.appendChild(panel);
+
+    function createOptionElement(opt) {
+      const optRow = document.createElement('div');
+      optRow.className = 'custom-select-option';
+      optRow.setAttribute('role', 'option');
+      optRow.setAttribute('data-value', opt.value);
+      optRow.setAttribute('tabindex', '-1');
+
+      const label = document.createElement('span');
+      label.className = 'custom-select-option-label';
+      label.textContent = opt.textContent;
+      optRow.appendChild(label);
+
+      optRow.addEventListener('click', (e) => {
+        e.stopPropagation();
+        selectValue(opt.value);
+        closePanel();
+        trigger.focus();
+      });
+
+      return optRow;
+    }
+
+    function buildOptions() {
+      optionsList.innerHTML = '';
+      const children = Array.from(select.children);
+
+      children.forEach(child => {
+        if (child.tagName.toLowerCase() === 'optgroup') {
+          const groupDiv = document.createElement('div');
+          groupDiv.className = 'custom-select-group';
+
+          const titleDiv = document.createElement('div');
+          titleDiv.className = 'custom-select-group-title';
+          titleDiv.textContent = child.getAttribute('label') || '';
+          groupDiv.appendChild(titleDiv);
+
+          Array.from(child.children).forEach(opt => {
+            const optRow = createOptionElement(opt);
+            if (optRow) groupDiv.appendChild(optRow);
+          });
+          optionsList.appendChild(groupDiv);
+        } else if (child.tagName.toLowerCase() === 'option') {
+          if (child.disabled && child.value === '') {
+            return; // Skip blank placeholder from options list
+          }
+          const optRow = createOptionElement(child);
+          if (optRow) optionsList.appendChild(optRow);
+        }
+      });
+    }
+
+    function syncFromSelect() {
+      const selectedIndex = select.selectedIndex;
+      const selectedOption = selectedIndex >= 0 ? select.options[selectedIndex] : null;
+
+      if (selectedOption && selectedOption.value !== '') {
+        valueSpan.textContent = selectedOption.textContent;
+        valueSpan.classList.remove('is-placeholder');
+      } else {
+        const placeholderOpt = select.querySelector('option[disabled]') || select.querySelector('option[value=""]');
+        const defaultText = placeholderOpt ? placeholderOpt.textContent : 'Select an option...';
+        valueSpan.textContent = defaultText;
+        valueSpan.classList.add('is-placeholder');
+      }
+
+      const optionRows = optionsList.querySelectorAll('.custom-select-option');
+      optionRows.forEach(row => {
+        const isMatch = row.getAttribute('data-value') === select.value && select.value !== '';
+        if (isMatch) {
+          row.classList.add('is-selected');
+          row.setAttribute('aria-selected', 'true');
+        } else {
+          row.classList.remove('is-selected');
+          row.setAttribute('aria-selected', 'false');
+        }
+      });
+
+      wrapper.classList.remove('is-invalid');
+    }
+
+    function selectValue(val) {
+      if (select.value !== val) {
+        select.value = val;
+        select.dispatchEvent(new Event('change', { bubbles: true }));
+        select.dispatchEvent(new Event('input', { bubbles: true }));
+      }
+      syncFromSelect();
+    }
+
+    function openPanel() {
+      // Close any other open dropdowns
+      document.querySelectorAll('.custom-select-wrapper.is-open').forEach(w => {
+        if (w !== wrapper) {
+          w.classList.remove('is-open');
+          const t = w.querySelector('.custom-select-trigger');
+          if (t) t.setAttribute('aria-expanded', 'false');
+          const p = w.closest('.form-group');
+          if (p) p.classList.remove('has-open-select');
+        }
+      });
+
+      wrapper.classList.add('is-open');
+      trigger.setAttribute('aria-expanded', 'true');
+      const parentGroup = wrapper.closest('.form-group');
+      if (parentGroup) parentGroup.classList.add('has-open-select');
+
+      const selectedRow = optionsList.querySelector('.custom-select-option.is-selected');
+      if (selectedRow) {
+        selectedRow.scrollIntoView({ block: 'nearest' });
+      }
+    }
+
+    function closePanel() {
+      wrapper.classList.remove('is-open');
+      trigger.setAttribute('aria-expanded', 'false');
+      const parentGroup = wrapper.closest('.form-group');
+      if (parentGroup) parentGroup.classList.remove('has-open-select');
+      optionsList.querySelectorAll('.custom-select-option.is-highlighted').forEach(el => el.classList.remove('is-highlighted'));
+    }
+
+    function highlightNext(step) {
+      const visibleRows = Array.from(optionsList.querySelectorAll('.custom-select-option'));
+      if (visibleRows.length === 0) return;
+
+      const currentIndex = visibleRows.findIndex(r => r.classList.contains('is-highlighted'));
+      let nextIndex;
+      if (currentIndex === -1) {
+        nextIndex = step > 0 ? 0 : visibleRows.length - 1;
+      } else {
+        nextIndex = (currentIndex + step + visibleRows.length) % visibleRows.length;
+      }
+
+      visibleRows.forEach(r => r.classList.remove('is-highlighted'));
+      visibleRows[nextIndex].classList.add('is-highlighted');
+      visibleRows[nextIndex].scrollIntoView({ block: 'nearest' });
+    }
+
+    trigger.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (wrapper.classList.contains('is-open')) {
+        closePanel();
+      } else {
+        openPanel();
+      }
+    });
+
+    trigger.addEventListener('keydown', (e) => {
+      if (e.key === ' ' || e.key === 'Enter' || e.key === 'ArrowDown') {
+        e.preventDefault();
+        if (!wrapper.classList.contains('is-open')) {
+          openPanel();
+        } else if (e.key === 'ArrowDown') {
+          highlightNext(1);
+        } else if (e.key === 'Enter' || e.key === ' ') {
+          const highlighted = optionsList.querySelector('.custom-select-option.is-highlighted');
+          if (highlighted) {
+            highlighted.click();
+          }
+        }
+      } else if (e.key === 'ArrowUp' && wrapper.classList.contains('is-open')) {
+        e.preventDefault();
+        highlightNext(-1);
+      } else if (e.key === 'Escape' && wrapper.classList.contains('is-open')) {
+        e.preventDefault();
+        closePanel();
+      }
+    });
+
+    // Native validation integration
+    select.addEventListener('invalid', () => {
+      wrapper.classList.add('is-invalid');
+      trigger.focus();
+    });
+
+    // Delegate focus from native select to custom trigger (e.g. when label is clicked)
+    select.addEventListener('focus', () => {
+      trigger.focus();
+    });
+
+    // Form reset integration
+    const form = select.closest('form');
+    if (form) {
+      form.addEventListener('reset', () => {
+        setTimeout(syncFromSelect, 30);
+      });
+    }
+
+    // Intercept programmatic value assignment
+    const originalDesc = Object.getOwnPropertyDescriptor(HTMLSelectElement.prototype, 'value');
+    if (originalDesc && originalDesc.set) {
+      try {
+        Object.defineProperty(select, 'value', {
+          get() {
+            return originalDesc.get.call(this);
+          },
+          set(val) {
+            originalDesc.set.call(this, val);
+            syncFromSelect();
+          }
+        });
+      } catch (err) {
+        // Fallback gracefully
+      }
+    }
+
+    select.addEventListener('change', () => syncFromSelect());
+
+    buildOptions();
+    syncFromSelect();
+  });
+
+  // Global click outside listener
+  if (!window._customSelectGlobalListenerAdded) {
+    window._customSelectGlobalListenerAdded = true;
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.custom-select-wrapper')) {
+        document.querySelectorAll('.custom-select-wrapper.is-open').forEach(w => {
+          w.classList.remove('is-open');
+          const t = w.querySelector('.custom-select-trigger');
+          if (t) t.setAttribute('aria-expanded', 'false');
+          const p = w.closest('.form-group');
+          if (p) p.classList.remove('has-open-select');
+        });
+      }
+    });
+  }
+}
+
+// Global exposure & auto-initialization
+window.initCustomSelects = initCustomSelects;
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initCustomSelects);
+} else {
+  initCustomSelects();
+}

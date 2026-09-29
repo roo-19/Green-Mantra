@@ -1922,7 +1922,7 @@ custom-footer:not(:defined) {
   border: 1px solid var(--color-border);
   box-shadow: var(--shadow-md);
   position: relative;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .booking-form-box::before {
@@ -1932,6 +1932,7 @@ custom-footer:not(:defined) {
   left: 0;
   right: 0;
   height: 4px;
+  border-radius: var(--radius-xl) var(--radius-xl) 0 0;
   background: linear-gradient(90deg, var(--color-gold) 0%, var(--color-primary) 100%);
 }
 
@@ -2059,6 +2060,237 @@ custom-footer:not(:defined) {
 textarea.form-control {
   resize: vertical;
   min-height: 120px;
+}
+
+/* ==========================================================================
+   Modern Minimalist Custom Dropdown UI System
+   ========================================================================== */
+
+/* Native select fallback styling (when JS is disabled or before hydration) */
+select.form-control {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23334155' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 16px 16px;
+  padding-right: 2.5rem;
+  cursor: pointer;
+}
+
+/* Form group z-index management so open dropdown overlays adjacent form items */
+.form-group {
+  position: relative;
+}
+
+.form-group:has(.custom-select-wrapper.is-open),
+.form-group.has-open-select {
+  z-index: 80;
+}
+
+/* Custom Select Root Container */
+.custom-select-wrapper {
+  position: relative;
+  width: 100%;
+  user-select: none;
+  font-family: var(--font-body);
+}
+
+/* Visually Hidden Native Select */
+.custom-select-native {
+  position: absolute !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  width: 1px !important;
+  height: 1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+  padding: 0 !important;
+  margin: -1px !important;
+}
+
+/* Custom Select Trigger Button */
+.custom-select-trigger {
+  width: 100%;
+  min-height: 48px;
+  padding: 0.75rem 1rem;
+  border: 1.5px solid var(--color-border);
+  border-radius: 8px;
+  background-color: #ffffff;
+  color: var(--color-text-main);
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  cursor: pointer;
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+}
+
+.custom-select-trigger:hover {
+  border-color: #CBD5E1;
+}
+
+/* Active / Open state matching the user's reference image */
+.custom-select-wrapper.is-open .custom-select-trigger,
+.custom-select-trigger:focus-visible {
+  border-color: #6366F1;
+  background-color: #ffffff;
+  box-shadow: 0 0 0 1px #6366F1;
+}
+
+/* Validation Invalid State */
+.custom-select-wrapper.is-invalid .custom-select-trigger {
+  border-color: #EF4444 !important;
+  box-shadow: 0 0 0 1px #EF4444 !important;
+}
+
+/* Trigger Label Content */
+.custom-select-selection {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  min-width: 0;
+}
+
+.custom-select-value {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-weight: 450;
+  color: #0F172A;
+  font-size: 0.95rem;
+  letter-spacing: -0.01em;
+}
+
+.custom-select-value.is-placeholder {
+  color: #94A3B8;
+  font-weight: 400;
+}
+
+/* Minimalist Clean Chevron Arrow */
+.custom-select-chevron {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0F172A;
+  flex-shrink: 0;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.custom-select-wrapper.is-open .custom-select-chevron {
+  transform: rotate(180deg);
+}
+
+/* Dropdown Menu Floating Panel */
+.custom-select-panel {
+  position: absolute;
+  top: calc(100% + 5px);
+  left: 0;
+  right: 0;
+  z-index: 1050;
+  background: #ffffff;
+  border: 1px solid #E2E8F0;
+  border-radius: 10px;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
+  overflow: hidden;
+  padding: 0.35rem 0;
+  opacity: 0;
+  transform: translateY(-4px);
+  pointer-events: none;
+  visibility: hidden;
+  transition: opacity 0.15s ease, transform 0.15s ease, visibility 0.15s;
+}
+
+.custom-select-wrapper.is-open .custom-select-panel {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+  visibility: visible;
+}
+
+/* Options Scroll Area */
+.custom-select-options-list {
+  max-height: 270px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #E2E8F0 transparent;
+}
+
+.custom-select-options-list::-webkit-scrollbar {
+  width: 5px;
+}
+
+.custom-select-options-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-select-options-list::-webkit-scrollbar-thumb {
+  background-color: #E2E8F0;
+  border-radius: 10px;
+}
+
+.custom-select-options-list::-webkit-scrollbar-thumb:hover {
+  background-color: #CBD5E1;
+}
+
+/* Optgroup Header */
+.custom-select-group {
+  margin: 0.35rem 0 0.2rem;
+}
+
+.custom-select-group:first-child {
+  margin-top: 0;
+}
+
+.custom-select-group-title {
+  padding: 0.45rem 1rem 0.3rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #64748B;
+  background: #F8FAFC;
+  border-top: 1px solid #F1F5F9;
+  border-bottom: 1px solid #F1F5F9;
+}
+
+/* Individual Option Item */
+.custom-select-option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  transition: background-color 0.12s ease, color 0.12s ease;
+  font-size: 0.95rem;
+  color: #0F172A;
+  line-height: 1.4;
+  outline: none;
+}
+
+.custom-select-option-label {
+  white-space: normal;
+  word-break: break-word;
+}
+
+/* Option Hover & Keyboard Highlight */
+.custom-select-option:hover,
+.custom-select-option.is-highlighted {
+  background-color: #F8FAFC;
+  color: #0F172A;
+}
+
+/* Option Selected State */
+.custom-select-option.is-selected {
+  background-color: #F1F5F9;
+  font-weight: 500;
+  color: #0F172A;
 }
 
 /* --- 19. Contact Page & Map Placeholder --- */
