@@ -1976,7 +1976,7 @@ custom-footer:not(:defined) {
   border: 1px solid var(--color-border);
   box-shadow: var(--shadow-md);
   position: relative;
-  overflow: visible;
+  overflow: hidden;
 }
 
 .booking-form-box::before {
@@ -1985,9 +1985,9 @@ custom-footer:not(:defined) {
   top: 0;
   left: 0;
   right: 0;
-  height: 4px;
-  border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+  height: 5px;
   background: linear-gradient(90deg, var(--color-gold) 0%, var(--color-primary) 100%);
+  z-index: 2;
 }
 
 .client-type-group {
