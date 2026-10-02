@@ -8,38 +8,38 @@
 /* --- 1. Design Tokens & Color Palette --- */
 :root {
   /* Brand Earth Greens */
-  --color-primary: #4A7C59;           /* Primary Soft Earth Green */
-  --color-primary-dark: #32563D;      /* Deep Forest Green */
-  --color-primary-darker: #233D2B;    /* Rich Botanical Green */
-  --color-primary-light: #5E946F;     /* Uplifting Herbal Green */
-  --color-sage: #739B82;              /* Soft Sage */
-  --color-sage-light: #E4EEE7;        /* Very Light Sage Wash */
-  --color-sage-subtle: #F0F6F2;       /* Ultra-soft Sage Tint */
+  --color-primary: #1F7A4C;           /* Rich Vibrant Emerald Green */
+  --color-primary-dark: #145E38;      /* Deep Regal Botanical Green */
+  --color-primary-darker: #0D3B22;    /* Luxurious Deep Canopy Pine */
+  --color-primary-light: #2DB86B;     /* Radiant Herbal Mint / Spring Green */
+  --color-sage: #4E9B6E;              /* Fresh Garden Sage */
+  --color-sage-light: #DBEFE2;        /* Dewy Botanical Leaf Tint */
+  --color-sage-subtle: #EDF7F1;       /* Ultra-soft Refreshing Mint Wash */
 
-  /* Neutrals & Warm Earth Beiges */
-  --color-bg: #FAF8F5;                /* Warm Pristine Linen Background */
-  --color-bg-alt: #F4F1EA;            /* Soft Beige / Sand */
-  --color-bg-warm: #ECE7DE;           /* Deeper Warm Neutral */
+  /* Neutrals & Organic Green Foundations */
+  --color-bg: #F5F9F6;                /* Soothing Pristine Botanical Linen */
+  --color-bg-alt: #E8F3EB;            /* Refreshing Soft Herbal Green Wash */
+  --color-bg-warm: #DCECE1;           /* Deeper Organic Moss / Sage Neutral */
   --color-surface: #FFFFFF;           /* Crisp Card Surface */
-  --color-surface-translucent: rgba(255, 255, 255, 0.92);
-  --color-border: #E3DDD2;            /* Subtle Warm Border */
-  --color-border-light: #EEE9E0;      /* Light Divider */
+  --color-surface-translucent: rgba(255, 255, 255, 0.94);
+  --color-border: #C8E2D1;            /* Crisp Jade / Sage Micro-Border */
+  --color-border-light: #DDF0E4;      /* Soft Botanical Divider */
 
-  /* Muted Blues & Secondary Accents */
-  --color-accent: #8BA39E;            /* Muted Slate Blue */
-  --color-accent-dark: #627F7A;       /* Deep Muted Blue */
-  --color-accent-light: #DCE7E4;      /* Soft Sky/Mist Tint */
-  --color-accent-subtle: #EDF3F2;     /* Subtle Blue Mist */
+  /* Vibrant Botanical Jade & Meadow Secondary Accents */
+  --color-accent: #18A974;            /* Luminous Vibrant Jade Accent */
+  --color-accent-dark: #117C54;       /* Deep Jade Spruce */
+  --color-accent-light: #D0F5E3;      /* Dewy Spring Leaf Tint */
+  --color-accent-subtle: #E7FAF0;     /* Airy Mint Dew */
 
   /* Warm Golden Sun Accents */
-  --color-gold: #C29653;              /* Warm Amber/Gold */
-  --color-gold-light: #F7EEDB;        /* Soft Gold Glow */
-  --color-gold-dark: #9F7638;         /* Deep Warm Bronze */
+  --color-gold: #C59942;              /* Warm Botanical Amber/Gold */
+  --color-gold-light: #FBF4E4;        /* Soft Golden Glow */
+  --color-gold-dark: #A47728;         /* Deep Warm Bronze */
 
   /* Typography Colors */
-  --color-text-main: #243028;         /* Deep Forest Charcoal */
-  --color-text-muted: #56645C;        /* Soft Earthy Gray */
-  --color-text-light: #839288;        /* Gentle Placeholder Gray */
+  --color-text-main: #14281D;         /* Deep Botanical Obsidian */
+  --color-text-muted: #34503E;        /* Rich Moss Slate */
+  --color-text-light: #5D7D6A;        /* Gentle Herbal Gray */
   --color-text-inverse: #FFFFFF;      /* Clean White */
 
   /* Typography Fonts */
@@ -55,10 +55,10 @@
   --space-xxl: 6rem;
 
   /* Shadows & Elevation */
-  --shadow-sm: 0 3px 10px rgba(36, 48, 40, 0.04);
-  --shadow-md: 0 10px 28px rgba(36, 48, 40, 0.07);
-  --shadow-lg: 0 20px 42px rgba(36, 48, 40, 0.10);
-  --shadow-glow: 0 0 32px rgba(74, 124, 89, 0.18);
+  --shadow-sm: 0 3px 12px rgba(13, 59, 34, 0.05);
+  --shadow-md: 0 10px 28px rgba(13, 59, 34, 0.08);
+  --shadow-lg: 0 20px 42px rgba(13, 59, 34, 0.12);
+  --shadow-glow: 0 0 32px rgba(31, 122, 76, 0.28);
 
   /* Rounded Corners */
   --radius-sm: 8px;
@@ -172,7 +172,7 @@ p:last-child {
 /* --- 4. Botanical Patterns & Textures --- */
 .bg-leaf-pattern {
   background-color: var(--color-bg-alt);
-  background-image: radial-gradient(rgba(74, 124, 89, 0.08) 1px, transparent 0), radial-gradient(rgba(139, 163, 158, 0.08) 1px, var(--color-bg-alt) 1px);
+  background-image: radial-gradient(rgba(31, 122, 76, 0.10) 1px, transparent 0), radial-gradient(rgba(24, 169, 116, 0.10) 1px, var(--color-bg-alt) 1px);
   background-size: 28px 28px;
   background-position: 0 0, 14px 14px;
 }
@@ -189,7 +189,7 @@ p:last-child {
   right: -60px;
   width: 320px;
   height: 320px;
-  background: radial-gradient(circle, rgba(139, 163, 158, 0.18) 0%, rgba(74, 124, 89, 0) 70%);
+  background: radial-gradient(circle, rgba(24, 169, 116, 0.16) 0%, rgba(31, 122, 76, 0) 70%);
   border-radius: 50%;
   pointer-events: none;
   z-index: 0;
@@ -202,7 +202,7 @@ p:last-child {
   left: -60px;
   width: 320px;
   height: 320px;
-  background: radial-gradient(circle, rgba(74, 124, 89, 0.12) 0%, rgba(244, 241, 234, 0) 70%);
+  background: radial-gradient(circle, rgba(31, 122, 76, 0.12) 0%, rgba(232, 243, 235, 0) 70%);
   border-radius: 50%;
   pointer-events: none;
   z-index: 0;
@@ -283,19 +283,19 @@ p:last-child {
   letter-spacing: 0.08em;
   border-radius: var(--radius-full);
   margin-bottom: 1rem;
-  border: 1px solid rgba(74, 124, 89, 0.15);
+  border: 1px solid rgba(31, 122, 76, 0.18);
 }
 
 .section-tag.gold {
   background-color: var(--color-gold-light);
   color: var(--color-gold-dark);
-  border-color: rgba(194, 150, 83, 0.25);
+  border-color: rgba(197, 153, 66, 0.3);
 }
 
 .section-tag.blue {
   background-color: var(--color-accent-light);
   color: var(--color-accent-dark);
-  border-color: rgba(139, 163, 158, 0.3);
+  border-color: rgba(24, 169, 116, 0.25);
 }
 
 .pill-badge {
@@ -330,13 +330,13 @@ p:last-child {
 .btn-primary {
   background-color: var(--color-primary);
   color: var(--color-text-inverse);
-  box-shadow: 0 4px 16px rgba(74, 124, 89, 0.25);
+  box-shadow: 0 4px 16px rgba(31, 122, 76, 0.28);
 }
 
 .btn-primary:hover {
   background-color: var(--color-primary-dark);
   transform: translateY(-2px);
-  box-shadow: 0 8px 22px rgba(74, 124, 89, 0.35);
+  box-shadow: 0 8px 22px rgba(31, 122, 76, 0.38);
   color: #fff;
 }
 
@@ -353,13 +353,13 @@ p:last-child {
 }
 
 .btn-accent {
-  background-color: var(--color-accent-dark);
+  background-color: var(--color-accent);
   color: #ffffff;
-  box-shadow: 0 4px 14px rgba(98, 127, 122, 0.25);
+  box-shadow: 0 4px 14px rgba(24, 169, 116, 0.25);
 }
 
 .btn-accent:hover {
-  background-color: var(--color-primary-dark);
+  background-color: var(--color-accent-dark);
   transform: translateY(-2px);
   color: #fff;
 }
@@ -467,7 +467,7 @@ custom-footer:not(:defined) {
 
 .site-header.scrolled {
   background-color: rgba(255, 255, 255, 0.98);
-  box-shadow: 0 4px 20px rgba(36, 48, 40, 0.06);
+  box-shadow: 0 4px 20px rgba(13, 59, 34, 0.06);
 }
 
 .navbar {
@@ -587,7 +587,7 @@ custom-footer:not(:defined) {
   background-color: #ffffff;
   border-radius: var(--radius-lg);
   border: 1px solid var(--color-border);
-  box-shadow: 0 16px 42px rgba(36, 48, 40, 0.12), 0 4px 14px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 16px 42px rgba(13, 59, 34, 0.12), 0 4px 14px rgba(0, 0, 0, 0.04);
   padding: 1.4rem 1.6rem 1.2rem 1.6rem;
   opacity: 0;
   visibility: hidden;
@@ -807,7 +807,7 @@ custom-footer:not(:defined) {
 .hero {
   position: relative;
   padding: 5rem 0 6rem 0;
-  background: linear-gradient(180deg, rgba(244, 241, 234, 0.75) 0%, var(--color-bg) 100%);
+  background: linear-gradient(180deg, rgba(232, 243, 235, 0.85) 0%, var(--color-bg) 100%);
   overflow: hidden;
 }
 
@@ -1043,7 +1043,7 @@ custom-footer:not(:defined) {
 .teaser-card:hover {
   transform: translateY(-6px);
   box-shadow: var(--shadow-lg);
-  border-color: rgba(74, 124, 89, 0.3);
+  border-color: rgba(31, 122, 76, 0.35);
 }
 
 .teaser-card:hover::before {
@@ -1136,7 +1136,7 @@ custom-footer:not(:defined) {
   background-color: var(--color-primary);
   border-color: var(--color-primary);
   color: #ffffff;
-  box-shadow: 0 4px 12px rgba(74, 124, 89, 0.25);
+  box-shadow: 0 4px 12px rgba(31, 122, 76, 0.28);
 }
 
 .service-card-full {
@@ -1153,7 +1153,7 @@ custom-footer:not(:defined) {
 .service-card-full:hover {
   transform: translateY(-6px);
   box-shadow: var(--shadow-lg);
-  border-color: rgba(74, 124, 89, 0.35);
+  border-color: rgba(31, 122, 76, 0.35);
 }
 
 .service-card-img-wrap {
@@ -1236,7 +1236,7 @@ custom-footer:not(:defined) {
 
 /* --- 14. Upcoming Services Section (Visually Distinct) --- */
 .upcoming-section {
-  background: linear-gradient(135deg, #F0F5F2 0%, #E8EFEA 100%);
+  background: linear-gradient(135deg, #EBF5EE 0%, #DCEFE3 100%);
   border-top: 1px solid var(--color-border);
   border-bottom: 1px solid var(--color-border);
 }
@@ -1414,7 +1414,7 @@ custom-footer:not(:defined) {
 .team-card:hover {
   transform: translateY(-6px);
   box-shadow: var(--shadow-lg);
-  border-color: rgba(74, 124, 89, 0.35);
+  border-color: rgba(31, 122, 76, 0.35);
 }
 
 .team-img-wrap {
@@ -1595,7 +1595,7 @@ custom-footer:not(:defined) {
 }
 
 .booking-step-card.step-1::before {
-  background: linear-gradient(90deg, #4A7C59, #8FA68A);
+  background: linear-gradient(90deg, #1F7A4C, #2DB86B);
 }
 
 .booking-step-card.step-2::before {
@@ -1621,7 +1621,7 @@ custom-footer:not(:defined) {
 }
 
 .booking-step-card.step-1 .booking-step-icon {
-  background: linear-gradient(135deg, #2C3E35 0%, #4A7C59 100%);
+  background: linear-gradient(135deg, #0D3B22 0%, #1F7A4C 100%);
 }
 
 .booking-step-card.step-2 .booking-step-icon {
@@ -1640,10 +1640,10 @@ custom-footer:not(:defined) {
 
 /* Scheduling Portal Hub Card */
 .booking-portal-card {
-  background: linear-gradient(145deg, #ffffff 0%, #F5F8F5 50%, #FCF9F2 100%);
+  background: linear-gradient(145deg, #ffffff 0%, #F5F9F6 50%, #EBF5EE 100%);
   border-radius: var(--radius-xl);
-  border: 1px solid rgba(194, 155, 56, 0.28);
-  box-shadow: 0 10px 30px rgba(44, 62, 53, 0.08);
+  border: 1px solid var(--color-border);
+  box-shadow: 0 10px 30px rgba(13, 59, 34, 0.08);
   padding: 3.5rem 2.5rem;
   text-align: center;
   margin-bottom: 4rem;
@@ -1658,7 +1658,7 @@ custom-footer:not(:defined) {
   left: 0;
   right: 0;
   height: 5px;
-  background: linear-gradient(90deg, #2C3E35 0%, #4A7C59 30%, #C29B38 70%, #C47256 100%);
+  background: linear-gradient(90deg, #0D3B22 0%, #1F7A4C 35%, #2DB86B 65%, #C59942 100%);
 }
 
 .portal-brand-badge {
@@ -1685,22 +1685,22 @@ custom-footer:not(:defined) {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  background: rgba(74, 124, 89, 0.12);
-  color: #233D2B;
+  background: rgba(31, 122, 76, 0.12);
+  color: #0D3B22;
   padding: 0.35rem 1rem;
   border-radius: var(--radius-full);
   font-size: 0.85rem;
   font-weight: 600;
   margin-bottom: 1.2rem;
-  border: 1px solid rgba(74, 124, 89, 0.25);
+  border: 1px solid rgba(31, 122, 76, 0.25);
 }
 
 .portal-status-pulse {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: #2E7D32;
-  box-shadow: 0 0 0 rgba(46, 125, 50, 0.4);
+  background: #1F7A4C;
+  box-shadow: 0 0 0 rgba(31, 122, 76, 0.4);
   animation: portalPulse 2s infinite;
 }
 
@@ -1754,7 +1754,7 @@ custom-footer:not(:defined) {
 .pill-gold { background: #C29B38; }
 .pill-teal { background: #00897B; }
 .pill-coral { background: #C47256; }
-.pill-sage { background: #4A7C59; }
+.pill-sage { background: #1F7A4C; }
 
 .portal-action-row {
   display: flex;
@@ -1766,7 +1766,7 @@ custom-footer:not(:defined) {
 }
 
 .btn-portal-glow {
-  background: linear-gradient(135deg, #2C3E35 0%, #4A7C59 100%);
+  background: linear-gradient(135deg, #145E38 0%, #1F7A4C 100%);
   color: #ffffff;
   padding: 1.1rem 2.6rem;
   font-size: 1.08rem;
@@ -1775,14 +1775,14 @@ custom-footer:not(:defined) {
   align-items: center;
   gap: 0.6rem;
   font-weight: 600;
-  box-shadow: 0 6px 18px rgba(44, 62, 53, 0.22);
+  box-shadow: 0 6px 18px rgba(20, 94, 56, 0.28);
   transition: all var(--transition-normal);
   text-decoration: none;
 }
 
 .btn-portal-glow:hover {
-  background: linear-gradient(135deg, #233D2B 0%, #3D664A 100%);
-  box-shadow: 0 8px 24px rgba(44, 62, 53, 0.32);
+  background: linear-gradient(135deg, #0D3B22 0%, #145E38 100%);
+  box-shadow: 0 8px 24px rgba(13, 59, 34, 0.38);
   transform: translateY(-2px);
   color: #ffffff;
 }
@@ -2205,9 +2205,9 @@ select.form-control {
 /* Active / Open state matching the user's reference image */
 .custom-select-wrapper.is-open .custom-select-trigger,
 .custom-select-trigger:focus-visible {
-  border-color: #6366F1;
+  border-color: var(--color-primary);
   background-color: #ffffff;
-  box-shadow: 0 0 0 1px #6366F1;
+  box-shadow: 0 0 0 2px rgba(31, 122, 76, 0.22);
 }
 
 /* Validation Invalid State */
@@ -2435,7 +2435,7 @@ select.form-control {
   content: '';
   position: absolute;
   inset: 0;
-  background-image: radial-gradient(rgba(74, 124, 89, 0.08) 2px, transparent 0);
+  background-image: radial-gradient(rgba(31, 122, 76, 0.10) 2px, transparent 0);
   background-size: 16px 16px;
   pointer-events: none;
 }
@@ -2450,7 +2450,7 @@ select.form-control {
   align-items: center;
   justify-content: center;
   margin-bottom: 1rem;
-  box-shadow: 0 4px 14px rgba(74, 124, 89, 0.3);
+  box-shadow: 0 4px 14px rgba(31, 122, 76, 0.35);
 }
 
 .map-placeholder-icon svg {
@@ -2581,8 +2581,8 @@ select.form-control {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  background: rgba(230, 240, 235, 0.95);
-  border: 1px solid rgba(44, 95, 45, 0.2);
+  background: rgba(219, 239, 226, 0.95);
+  border: 1px solid rgba(31, 122, 76, 0.28);
   color: var(--color-primary-dark);
   padding: 0.45rem 1.15rem;
   border-radius: var(--radius-full);
@@ -2681,9 +2681,9 @@ select.form-control {
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
-  background: #EBF7EE;
-  color: #1E7E34;
-  border: 1px solid #C3E6CB;
+  background: #E0F5E7;
+  color: #145E38;
+  border: 1px solid #B0E4C0;
   font-size: 0.75rem;
   font-weight: 700;
   padding: 0.2rem 0.65rem;
@@ -3117,7 +3117,7 @@ select.form-control {
   right: -80px;
   width: 300px;
   height: 300px;
-  background: radial-gradient(circle, rgba(194, 150, 83, 0.25) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(45, 184, 107, 0.25) 0%, transparent 70%);
   border-radius: 50%;
 }
 
@@ -3680,8 +3680,8 @@ select.form-control {
   left: 0;
   right: 0;
   height: 32px;
-  background-color: #1F3729; /* Dark Forest Green */
-  border-bottom: 2px solid #C5A059; /* Gold Accent */
+  background-color: #0D3B22; /* Luxurious Deep Canopy Pine */
+  border-bottom: 2px solid #C59942; /* Warm Botanical Gold Accent */
   color: #FFFFFF;
   font-size: 0.82rem;
   font-weight: 600;
@@ -3781,12 +3781,12 @@ main {
   bottom: 24px;
   right: 24px;
   z-index: 999;
-  background: var(--color-primary-dark, #1F3729);
+  background: linear-gradient(135deg, var(--color-primary-darker) 0%, var(--color-primary-dark) 100%);
   color: #ffffff;
   padding: 0.75rem 1.25rem;
   border-radius: 30px;
-  border: 1px solid var(--color-gold, #C5A059);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+  border: 1px solid var(--color-primary-light);
+  box-shadow: 0 8px 24px rgba(13, 59, 34, 0.22);
   display: flex;
   align-items: center;
   gap: 0.6rem;
@@ -3798,16 +3798,16 @@ main {
 
 .floating-booking-pill:hover {
   transform: translateY(-3px) scale(1.03);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 12px 28px rgba(13, 59, 34, 0.32);
   color: #ffffff;
 }
 
 .floating-booking-pill-dot {
   width: 8px;
   height: 8px;
-  background-color: #48bb78;
+  background-color: #2DB86B;
   border-radius: 50%;
-  box-shadow: 0 0 8px #48bb78;
+  box-shadow: 0 0 10px #2DB86B;
 }
 
 @media (max-width: 640px) {
@@ -3940,7 +3940,7 @@ main {
 .career-perk-card:hover {
   transform: translateY(-5px);
   box-shadow: var(--shadow-md);
-  border-color: rgba(74, 124, 89, 0.4);
+  border-color: rgba(31, 122, 76, 0.4);
 }
 
 .career-perk-icon {
@@ -3953,7 +3953,7 @@ main {
   margin-bottom: 1.2rem;
   background: linear-gradient(135deg, var(--color-sage-light) 0%, var(--color-bg-alt) 100%);
   color: var(--color-primary);
-  border: 1px solid rgba(74, 124, 89, 0.2);
+  border: 1px solid rgba(31, 122, 76, 0.25);
 }
 
 .career-role-card {
