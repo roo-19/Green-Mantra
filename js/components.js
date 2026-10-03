@@ -45,11 +45,6 @@
       const isContact = page === 'contact.html';
 
       this.innerHTML = `
-        <!-- Staging Preview Banner -->
-        <div class="staging-banner" aria-label="Staging Preview Banner">
-          <span>STAGING PREVIEW ONLY — Site Under Construction &amp; Subject to Content Updates</span>
-        </div>
-
         <!-- Top Utility Bar -->
         <div class="topbar">
           <div class="container topbar-content">
@@ -58,12 +53,11 @@
                 <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
                 <span>1101 Kingston Road, Suite 120, Pickering, ON L1V 1B5, Canada</span>
               </div>
+            </div>
+            <div class="topbar-right">
               <div class="topbar-item">
                 <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
                 <a href="tel:9058393000">905 839 3000</a>
-              </div>
-            </div>
-            
               </div>
             </div>
           </div>
@@ -330,15 +324,10 @@
 
               <div class="footer-col">
                 <h4>Visit Our Space</h4>
-                <div class="footer-links footer-contact-info" style="color: #ffffff; line-height: 1.65;">
-                  <p style="color: #ffffff; font-size: 0.95rem; margin-bottom: 0.8rem;">
-                    1101 Kingston Road, Suite 120<br>Pickering, ON L1V 1B5, Canada
-                  </p>
-                  <p style="color: #ffffff; font-size: 0.95rem; margin-bottom: 0.8rem;">
-                    Phone: <a href="tel:9058393000" style="color: #ffffff; font-weight: 600;">905 839 3000</a><br>
-                    Email: <a href="mailto:admin@greenmantrawellness.com" style="color: #ffffff; font-weight: 600;">admin@greenmantrawellness.com</a>
-                  </p>
-                  <p style="margin-top: 0.5rem; color: #ffffff; opacity: 0.9; font-size: 0.88rem;">Complimentary on-site guest parking</p>
+                <div class="footer-links">
+                  <p>1101 Kingston Road, Suite 120<br>Pickering, ON L1V 1B5, Canada</p>
+                  <p>Phone: <a href="tel:9058393000">905 839 3000</a><br>Email: <a href="mailto:admin@greenmantrawellness.com">admin@greenmantrawellness.com</a></p>
+                  <p class="footer-parking-note">Complimentary on-site guest parking</p>
                 </div>
               </div>
             </div>

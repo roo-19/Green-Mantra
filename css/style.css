@@ -448,7 +448,7 @@ custom-footer {
 
 custom-header:not(:defined) {
   display: block;
-  min-height: 124px;
+  min-height: 118px;
 }
 
 custom-footer:not(:defined) {
@@ -3169,7 +3169,7 @@ select.form-control {
 }
 
 .footer-brand p {
-  color: rgba(255, 255, 255, 0.72);
+  color: rgba(255, 255, 255, 0.80);
   font-size: 0.92rem;
   margin: 1.2rem 0 1.8rem 0;
 }
@@ -3217,15 +3217,27 @@ select.form-control {
   gap: 0.75rem;
 }
 
-.footer-links a {
-  color: rgba(255, 255, 255, 0.72);
+.footer-links a,
+.footer-links p {
+  color: rgba(255, 255, 255, 0.80);
   font-size: 0.92rem;
+  line-height: 1.65;
+  margin-bottom: 0;
+}
+
+.footer-links a {
   transition: color var(--transition-fast);
 }
 
 .footer-links a:hover {
   color: #ffffff;
   padding-left: 3px;
+}
+
+.footer-parking-note {
+  color: rgba(255, 255, 255, 0.58) !important;
+  font-size: 0.84rem !important;
+  margin-top: 0.35rem;
 }
 
 .footer-bottom {
@@ -4051,33 +4063,6 @@ main {
   background-size: 24px 24px;
   pointer-events: none;
 }
-/* Topbar Multi-Line Hours of Operation */
-.topbar-hours {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.5rem;
-}
-
-.topbar-hours-lines {
-  display: flex;
-  flex-direction: column;
-  line-height: 1.35;
-  font-size: 0.8rem;
-  color: rgba(255, 255, 255, 0.95);
-}
-
-/* Footer Contact Details High Contrast */
-.site-footer .footer-contact-info,
-.site-footer .footer-contact-info p,
-.site-footer .footer-contact-info a {
-  color: #ffffff !important;
-}
-
-.site-footer .footer-contact-info a:hover {
-  color: var(--color-gold) !important;
-  text-decoration: underline;
-}
-
 /* Image Wrappers Clean Display - No Green Overlays */
 .booking-hero::before,
 .img-placeholder-wrapper::after {
