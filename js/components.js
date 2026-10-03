@@ -63,10 +63,7 @@
                 <a href="tel:9058393000">905 839 3000</a>
               </div>
             </div>
-            <div class="topbar-right">
-              <div class="topbar-item">
-                <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
-                <span>Mon &ndash; Fri: 9:00 AM &ndash; 7:00 PM | Sat: 9:00 AM &ndash; 6:00 PM | Sun: 10 am to 5 pm</span>
+            
               </div>
             </div>
           </div>
@@ -333,10 +330,15 @@
 
               <div class="footer-col">
                 <h4>Visit Our Space</h4>
-                <div class="footer-links" style="color: rgba(255,255,255,0.76); line-height: 1.65;">
-                  <p>1101 Kingston Road, Suite 120<br>Pickering, ON L1V 1B5, Canada</p>
-                  <p>Phone: <a href="tel:9058393000" style="color: var(--color-gold-light);">905 839 3000</a><br>Email: <a href="mailto:admin@greenmantra.com" style="color: var(--color-gold-light);">admin@greenmantra.com</a></p>
-                  <p style="margin-top: 0.5rem; color: var(--color-accent-light);">Complimentary on-site guest parking</p>
+                <div class="footer-links footer-contact-info" style="color: #ffffff; line-height: 1.65;">
+                  <p style="color: #ffffff; font-size: 0.95rem; margin-bottom: 0.8rem;">
+                    1101 Kingston Road, Suite 120<br>Pickering, ON L1V 1B5, Canada
+                  </p>
+                  <p style="color: #ffffff; font-size: 0.95rem; margin-bottom: 0.8rem;">
+                    Phone: <a href="tel:9058393000" style="color: #ffffff; font-weight: 600;">905 839 3000</a><br>
+                    Email: <a href="mailto:admin@greenmantrawellness.com" style="color: #ffffff; font-weight: 600;">admin@greenmantrawellness.com</a>
+                  </p>
+                  <p style="margin-top: 0.5rem; color: #ffffff; opacity: 0.9; font-size: 0.88rem;">Complimentary on-site guest parking</p>
                 </div>
               </div>
             </div>

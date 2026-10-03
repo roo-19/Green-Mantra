@@ -777,7 +777,7 @@ custom-footer:not(:defined) {
   bottom: 12px;
   left: 12px;
   right: 12px;
-  background: rgba(35, 61, 43, 0.88);
+  background: rgba(18, 18, 18, 0.88);
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
   color: #ffffff;
@@ -1310,7 +1310,7 @@ custom-footer:not(:defined) {
 .service-hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(35, 61, 43, 0.2) 0%, rgba(35, 61, 43, 0.85) 100%);
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.6) 80%, rgba(0, 0, 0, 0.75) 100%);
   display: flex;
   align-items: flex-end;
   padding: 2.5rem;
@@ -4050,4 +4050,37 @@ main {
   background-image: radial-gradient(rgba(194, 155, 56, 0.15) 1px, transparent 0);
   background-size: 24px 24px;
   pointer-events: none;
+}
+/* Topbar Multi-Line Hours of Operation */
+.topbar-hours {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.topbar-hours-lines {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.35;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+/* Footer Contact Details High Contrast */
+.site-footer .footer-contact-info,
+.site-footer .footer-contact-info p,
+.site-footer .footer-contact-info a {
+  color: #ffffff !important;
+}
+
+.site-footer .footer-contact-info a:hover {
+  color: var(--color-gold) !important;
+  text-decoration: underline;
+}
+
+/* Image Wrappers Clean Display - No Green Overlays */
+.booking-hero::before,
+.img-placeholder-wrapper::after {
+  display: none !important;
+  background: none !important;
 }
